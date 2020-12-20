@@ -841,9 +841,6 @@ class BotBase(GroupMixin):
         view = StringView(message.content)
         ctx = cls(prefix=None, view=view, bot=self, message=message)
 
-        if self._skip_check(message.author.id, self.user.id):
-            return ctx
-
         prefix = await self.get_prefix(message)
         invoked_prefix = prefix
 
