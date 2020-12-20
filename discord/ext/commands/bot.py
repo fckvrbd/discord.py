@@ -115,11 +115,6 @@ class BotBase(GroupMixin):
         if self.owner_ids and not isinstance(self.owner_ids, collections.abc.Collection):
             raise TypeError('owner_ids must be a collection not {0.__class__!r}'.format(self.owner_ids))
 
-        if options.pop('self_bot', False):
-            self._skip_check = lambda x, y: x != y
-        else:
-            self._skip_check = lambda x, y: x == y
-
         if help_command is _default:
             self.help_command = DefaultHelpCommand()
         else:
